@@ -72,9 +72,7 @@ void TermQuadMult<STATE_DIM, CONTROL_DIM, SCALAR_EVAL, SCALAR>::setStateAndContr
     core::ControlVector<CONTROL_DIM>& u_ref)
 {
     x_ref_ = x_ref.template cast<SCALAR_EVAL>();
-    ;
     u_ref_ = u_ref.template cast<SCALAR_EVAL>();
-    ;
 }
 
 template <size_t STATE_DIM, size_t CONTROL_DIM, typename SCALAR_EVAL, typename SCALAR>
@@ -183,6 +181,32 @@ void TermQuadMult<STATE_DIM, CONTROL_DIM, SCALAR_EVAL, SCALAR>::loadConfigFile(c
         std::cout << "Read x_ref as x_ref = \n" << x_ref_.transpose() << std::endl;
         std::cout << "Read u_ref as u_ref = \n" << u_ref_.transpose() << std::endl;
     }
+}
+
+template <size_t STATE_DIM, size_t CONTROL_DIM, typename SCALAR_EVAL, typename SCALAR>
+void TermQuadMult<STATE_DIM, CONTROL_DIM, SCALAR_EVAL, SCALAR>::updateReferenceState(
+    const Eigen::Matrix<SCALAR_EVAL, STATE_DIM, 1>& newRefState)
+{
+    x_ref_ = newRefState;
+}
+
+template <size_t STATE_DIM, size_t CONTROL_DIM, typename SCALAR_EVAL, typename SCALAR>
+void TermQuadMult<STATE_DIM, CONTROL_DIM, SCALAR_EVAL, SCALAR>::updateReferenceControl(
+    const Eigen::Matrix<SCALAR_EVAL, CONTROL_DIM, 1>& newRefControl)
+{
+    u_ref_ = newRefControl;
+}
+
+template <size_t STATE_DIM, size_t CONTROL_DIM, typename SCALAR_EVAL, typename SCALAR>
+Eigen::Matrix<SCALAR_EVAL, STATE_DIM, 1> TermQuadMult<STATE_DIM, CONTROL_DIM, SCALAR_EVAL, SCALAR>::getReferenceState() const
+{
+    return x_ref_;
+}
+
+template <size_t STATE_DIM, size_t CONTROL_DIM, typename SCALAR_EVAL, typename SCALAR>
+Eigen::Matrix<SCALAR_EVAL, CONTROL_DIM, 1> TermQuadMult<STATE_DIM, CONTROL_DIM, SCALAR_EVAL, SCALAR>::getReferenceControl() const
+{
+    return u_ref_;
 }
 
 }  // namespace optcon

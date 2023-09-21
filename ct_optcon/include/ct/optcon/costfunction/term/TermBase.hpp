@@ -176,6 +176,9 @@ public:
 
     //! retrieve this term's current reference state
     virtual Eigen::Matrix<SCALAR_EVAL, STATE_DIM, 1> getReferenceState() const;
+
+    //! retrieve this term's current reference control 
+    virtual Eigen::Matrix<SCALAR_EVAL, CONTROL_DIM, 1> getReferenceControl() const;
 };
 
 }  // namespace optcon

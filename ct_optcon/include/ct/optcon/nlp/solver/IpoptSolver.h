@@ -12,9 +12,9 @@ Licensed under the BSD-2 license (see LICENSE file in main directory)
 
 #include <cstddef>
 #include <stddef.h>
-#include <coin/IpTNLP.hpp>
-#include <coin/IpIpoptApplication.hpp>
-#include <coin/IpSolveStatistics.hpp>
+#include <coin-or/IpTNLP.hpp>
+#include <coin-or/IpIpoptApplication.hpp>
+#include <coin-or/IpSolveStatistics.hpp>
 
 #endif  // BUILD_WITH_IPOPT_SUPPORT
 

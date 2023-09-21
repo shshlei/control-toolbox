@@ -158,5 +158,29 @@ void TermSmoothAbs<STATE_DIM, CONTROL_DIM, SCALAR_EVAL, SCALAR>::loadConfigFile(
         std::cout << "\nRead alpha^2 as " << alphaSquared_ << std::endl;
     }
 }
+
+template <size_t STATE_DIM, size_t CONTROL_DIM, typename SCALAR_EVAL, typename SCALAR>
+void TermSmoothAbs<STATE_DIM, CONTROL_DIM, SCALAR_EVAL, SCALAR>::updateReferenceState(const Eigen::Matrix<SCALAR_EVAL, STATE_DIM, 1>& newRefState)
+{
+    x_ref_ = newRefState;
+}
+
+template <size_t STATE_DIM, size_t CONTROL_DIM, typename SCALAR_EVAL, typename SCALAR>
+void TermSmoothAbs<STATE_DIM, CONTROL_DIM, SCALAR_EVAL, SCALAR>::updateReferenceControl(const Eigen::Matrix<SCALAR_EVAL, CONTROL_DIM, 1>& newRefControl)
+{
+    u_ref_ = newRefControl;
+}
+
+template <size_t STATE_DIM, size_t CONTROL_DIM, typename SCALAR_EVAL, typename SCALAR>
+Eigen::Matrix<SCALAR_EVAL, STATE_DIM, 1> TermSmoothAbs<STATE_DIM, CONTROL_DIM, SCALAR_EVAL, SCALAR>::getReferenceState() const
+{
+    return x_ref_;
+}
+
+template <size_t STATE_DIM, size_t CONTROL_DIM, typename SCALAR_EVAL, typename SCALAR>
+Eigen::Matrix<SCALAR_EVAL, CONTROL_DIM, 1> TermSmoothAbs<STATE_DIM, CONTROL_DIM, SCALAR_EVAL, SCALAR>::getReferenceControl() const
+{
+    return u_ref_;
+}
 }  // namespace optcon
 }  // namespace ct

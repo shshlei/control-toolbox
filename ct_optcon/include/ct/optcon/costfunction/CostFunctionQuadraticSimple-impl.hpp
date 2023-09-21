@@ -68,7 +68,7 @@ void CostFunctionQuadraticSimple<STATE_DIM, CONTROL_DIM, SCALAR>::setCurrentStat
 {
     this->x_ = x;
     this->u_ = u;
-    this->t_ = t;
+    this->t_ = t + this->t_shift_;
 
     this->x_deviation_ = x - x_nominal_;
     this->u_deviation_ = u - u_nominal_;
@@ -143,6 +143,7 @@ template <size_t STATE_DIM, size_t CONTROL_DIM, typename SCALAR>
 void CostFunctionQuadraticSimple<STATE_DIM, CONTROL_DIM, SCALAR>::updateReferenceState(const state_vector_t& x_ref)
 {
     x_nominal_ = x_ref;
+    this->x_deviation_ = this->x_ - x_nominal_;
 }
 
 template <size_t STATE_DIM, size_t CONTROL_DIM, typename SCALAR>
@@ -151,6 +152,12 @@ void CostFunctionQuadraticSimple<STATE_DIM, CONTROL_DIM, SCALAR>::updateFinalSta
     x_final_ = x_final;
 }
 
+template <size_t STATE_DIM, size_t CONTROL_DIM, typename SCALAR>
+void CostFunctionQuadraticSimple<STATE_DIM, CONTROL_DIM, SCALAR>::updateReferenceControl(const control_vector_t& u_ref)
+{
+    u_nominal_ = u_ref;
+    this->u_deviation_ = this->u_ - u_nominal_;
+}
 
 }  // namespace optcon
 }  // namespace ct

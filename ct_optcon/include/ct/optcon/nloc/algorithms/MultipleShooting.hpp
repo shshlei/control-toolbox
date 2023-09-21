@@ -35,7 +35,7 @@ public:
     typedef SCALAR Scalar_t;
 
     //! constructor
-    MultipleShooting(std::shared_ptr<Backend_t>& backend_, const Settings_t& settings);
+    MultipleShooting(std::shared_ptr<Backend_t>& backend_);
 
     //! destructor
     virtual ~MultipleShooting() = default;

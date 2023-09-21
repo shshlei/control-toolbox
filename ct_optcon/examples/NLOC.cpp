@@ -114,4 +114,6 @@ int main(int argc, char** argv)
 
     // let's plot the output
     plotResultsOscillator<state_dim, control_dim>(solution.x_ref(), solution.uff(), solution.time());
+
+    return 0;
 }

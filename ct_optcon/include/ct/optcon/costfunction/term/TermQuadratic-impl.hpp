@@ -239,5 +239,13 @@ Eigen::Matrix<SCALAR_EVAL, STATE_DIM, 1> TermQuadratic<STATE_DIM, CONTROL_DIM, S
 {
     return x_ref_;
 }
+
+template <size_t STATE_DIM, size_t CONTROL_DIM, typename SCALAR_EVAL, typename SCALAR>
+Eigen::Matrix<SCALAR_EVAL, CONTROL_DIM, 1> TermQuadratic<STATE_DIM, CONTROL_DIM, SCALAR_EVAL, SCALAR>::getReferenceControl()
+    const
+{
+    return u_ref_;
+}
+
 }  // namespace optcon
 }  // namespace ct

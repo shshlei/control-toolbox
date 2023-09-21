@@ -36,7 +36,7 @@ public:
 
 
     //! constructor
-    SingleShooting(std::shared_ptr<Backend_t>& backend_, const Settings_t& settings);
+    SingleShooting(std::shared_ptr<Backend_t>& backend_);
 
     //! destructor
     virtual ~SingleShooting() = default;

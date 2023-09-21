@@ -9,8 +9,7 @@ namespace ct {
 namespace optcon {
 
 template <size_t STATE_DIM, size_t CONTROL_DIM, size_t P_DIM, size_t V_DIM, typename SCALAR, bool CONTINUOUS>
-MultipleShooting<STATE_DIM, CONTROL_DIM, P_DIM, V_DIM, SCALAR, CONTINUOUS>::MultipleShooting(std::shared_ptr<Backend_t>& backend_,
-    const Settings_t& settings)
+MultipleShooting<STATE_DIM, CONTROL_DIM, P_DIM, V_DIM, SCALAR, CONTINUOUS>::MultipleShooting(std::shared_ptr<Backend_t>& backend_)
     : Base(backend_)
 {
 }

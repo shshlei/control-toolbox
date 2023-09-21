@@ -317,7 +317,7 @@ SCALAR CostFunctionQuadratic<STATE_DIM, CONTROL_DIM, SCALAR>::evaluateIntermedia
         {
             continue;
         }
-        y += it->computeActivation(this->t_) * it->eval(this->x_, this->u_, this->t_);
+        y += it->computeActivation(this->t_) * it->evaluate(this->x_, this->u_, this->t_);
     }
 
     return y;

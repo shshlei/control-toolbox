@@ -85,6 +85,13 @@ public:
 
     void loadConfigFile(const std::string& filename, const std::string& termName, bool verbose = false) override;
 
+    void updateReferenceState(const Eigen::Matrix<SCALAR_EVAL, STATE_DIM, 1>& newRefState) override;
+
+    void updateReferenceControl(const Eigen::Matrix<SCALAR_EVAL, CONTROL_DIM, 1>& newRefControl) override;
+
+    Eigen::Matrix<SCALAR_EVAL, STATE_DIM, 1> getReferenceState() const override;
+
+    Eigen::Matrix<SCALAR_EVAL, CONTROL_DIM, 1> getReferenceControl() const override;
 
 protected:
     template <typename SC>

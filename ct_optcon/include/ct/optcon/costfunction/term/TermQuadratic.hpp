@@ -102,6 +102,8 @@ public:
 
     virtual Eigen::Matrix<SCALAR_EVAL, STATE_DIM, 1> getReferenceState() const override;
 
+    virtual Eigen::Matrix<SCALAR_EVAL, CONTROL_DIM, 1> getReferenceControl() const override;
+
 protected:
     template <typename SC>
     SC evalLocal(const Eigen::Matrix<SC, STATE_DIM, 1>& x, const Eigen::Matrix<SC, CONTROL_DIM, 1>& u, const SC& t);

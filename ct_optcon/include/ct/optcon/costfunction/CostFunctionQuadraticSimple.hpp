@@ -88,6 +88,8 @@ public:
 
     virtual void updateFinalState(const state_vector_t& x_final) override;
 
+    virtual void updateReferenceControl(const control_vector_t& u_ref) override;
+
 protected:
     state_vector_t x_deviation_;
     state_vector_t x_nominal_;

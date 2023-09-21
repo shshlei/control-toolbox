@@ -56,8 +56,8 @@ public:
             {
                 if (sparsity(i, j))
                 {
-                    row_[count] = j;
-                    col_[count] = i;
+                    row_[count] = i;
+                    col_[count] = j;
                     count++;
                 }
             }

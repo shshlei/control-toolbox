@@ -127,9 +127,9 @@ void CostFunctionAD<STATE_DIM, CONTROL_DIM, SCALAR>::setCurrentStateAndControl(c
 {
     this->x_ = x;
     this->u_ = u;
-    this->t_ = t;
+    this->t_ = t + this->t_shift_;
 
-    stateControlTime_ << x, u, t;
+    stateControlTime_ << x, u, this->t_;
 }
 
 template <size_t STATE_DIM, size_t CONTROL_DIM, typename SCALAR>

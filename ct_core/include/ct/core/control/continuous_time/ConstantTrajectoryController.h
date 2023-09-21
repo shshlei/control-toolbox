@@ -40,7 +40,7 @@ public:
 
     //! Copy constructor
     ConstantTrajectoryController(const ConstantTrajectoryController<STATE_DIM, CONTROL_DIM, SCALAR>& other)
-        : Controller<STATE_DIM, CONTROL_DIM, SCALAR>(other), x_(other.x_), uff_(other.uff_)
+        : Controller<STATE_DIM, CONTROL_DIM, SCALAR>(other), uff_(other.uff_), x_(other.x_)
     {
     }
 
